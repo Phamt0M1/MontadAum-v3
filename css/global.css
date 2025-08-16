@@ -3,6 +3,7 @@
     --light-background: #E5D4C3;
     --typo-color: #56432F;
     --light-gold: #A7966A;
+    --base-font-family: "Inria Serif", serif;
 }
 
 * {
@@ -84,30 +85,29 @@ body {
     width: 100%;
 }
 
+/* hero section */
 .hero-content {
     width: 100%;
-    display: flex; /* Ajout pour organiser les éléments en flex */
-    min-height: 500px; /* Hauteur minimale pour voir l'image */
-}
-
-.img-hero {
-    width: 70vw;
+    display: flex; /* Ajout pour organiser l'image et le texte côte à côte */
+    border-bottom: solid 2px var(--typo-color);
 }
 
 .img-hero-content {
-    width: 70vw;
-    background-size: cover; /* Ajout pour couvrir tout l'espace */
+    width: 60vw; /* Changé de 70% à 70vw pour respecter la largeur de viewport */
+    height: calc(60vw/(967/715));
+    background-image: url(/image/hero-img.png);
+    background-size: cover; /* Ajout pour que l'image couvre tout l'espace */
     background-position: center; /* Ajout pour centrer l'image */
-    background-repeat: no-repeat; /* Empêche la répétition */
-    min-height: 500px; /* Hauteur minimale pour que l'image soit visible */
+    background-repeat: no-repeat; /* Évite la répétition de l'image */
+    border-right: solid 2px var(--typo-color);
 }
 
 .text-hero-content {
-    width: 30%;
-    padding: 40px; /* Ajout de padding pour espacer le texte */
+    width: 40vw; /* Changé de 30% à 30vw pour être cohérent */
+    padding: 20px; /* Ajout d'un peu d'espace interne */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Centre le contenu verticalement */
 }
 
 .text-hero-content h1 {
@@ -125,8 +125,8 @@ body {
 /* hero bottom */
 .hero-bottom {
     width: 100%;
-    padding: 20px;
     text-align: center;
+    border-bottom: solid 2px var(--typo-color);
 }
 
 .text-hero-bottom {
@@ -134,10 +134,47 @@ body {
     font-size: 1.2rem;
 }
 
-.text-hero-bottom.bold {
+.bold {
+    font-family: "Inria Serif", serif;
+    font-style: italic;
     font-weight: bold;
 }
 
+.light {
+    font-family: var(--base-font-family);
+    font-weight: lighter;
+}
+
+.column-container {
+  display: grid;
+  height: 10vh;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes égales */
+  text-align: center;
+  font-size: 24px;
+  color: white;
+}
+
+.column-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column1 { 
+    background: var(--light-blue);
+    border-right: solid 2px var(--typo-color); 
+}
+.column2 {
+    border-right: solid 2px var(--typo-color);
+    color: var(--typo-color);
+    gap: 5px;
+}
+.column3 {
+    border-right: solid 2px var(--typo-color);
+}
+.column4 { 
+    background: var(--light-gold);
+}
 /* Sections infos pratiques */
 .infos-pratiques {
     display: flex;
