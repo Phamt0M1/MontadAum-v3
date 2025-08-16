@@ -7,6 +7,7 @@
 
 * {
     font-family: Inria Sans;
+    box-sizing: border-box; /* Ajout pour éviter les débordements */
 }
 
 body {
@@ -16,23 +17,29 @@ body {
 }
 
 .main {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh; /* Changé de height à min-height */
+    width: 100%;
 }
+
 /* header */
 .header {
     background-color: var(--light-background);
     border-bottom: solid 2px var(--typo-color);
-    width: 100vw;
-
+    width: 100%; /* Changé de 100vw à 100% */
 }
 
 .nav-barre {
     display: flex;
-    width: calc(100vw - 40px);
+    width: 100%; /* Suppression du calc() qui causait le débordement */
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur */
+}
+
+.link-nav {
+    display: flex;
+    gap: 20px; /* Espacement entre les liens */
 }
 
 .link-nav-item {
@@ -56,10 +63,8 @@ body {
 
 .reservation-button-container {
     display: flex;
-    justify-content: end;
-
+    justify-content: flex-end; /* Changé de 'end' à 'flex-end' pour compatibilité */
 }
-
 
 .reservation-button {
     height: fit-content;
@@ -71,20 +76,162 @@ body {
     border-radius: 15px;
     border: solid 2px var(--typo-color);
     background-color: var(--light-background);
+    cursor: pointer;
 }
 
 /* hero section */
-.hero-content {
+.hero-section {
     width: 100%;
 }
 
-.img-hero-content {
-    width: 70%;
-    background-image: url(/image/hero_img.png);
+.hero-content {
+    width: 100%;
+    display: flex; /* Ajout pour organiser les éléments en flex */
+    min-height: 500px; /* Hauteur minimale pour voir l'image */
+}
 
+.img-hero {
+    width: 70vw;
+}
+
+.img-hero-content {
+    width: 70vw;
+    background-size: cover; /* Ajout pour couvrir tout l'espace */
+    background-position: center; /* Ajout pour centrer l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    min-height: 500px; /* Hauteur minimale pour que l'image soit visible */
 }
 
 .text-hero-content {
     width: 30%;
+    padding: 40px; /* Ajout de padding pour espacer le texte */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.text-hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--typo-color);
+}
+
+.text-hero-content p {
+    margin-bottom: 30px;
+    color: var(--typo-color);
+    line-height: 1.6;
+}
+
+/* hero bottom */
+.hero-bottom {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.text-hero-bottom {
+    color: var(--typo-color);
+    font-size: 1.2rem;
+}
+
+.text-hero-bottom.bold {
+    font-weight: bold;
+}
+
+/* Sections infos pratiques */
+.infos-pratiques {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+.infocolumn {
+    flex: 1;
+    min-width: 250px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.infocolumn.light-blue {
+    background-color: var(--light-blue);
+}
+
+.infocolumn.light-gold {
+    background-color: var(--light-gold);
+}
+
+.info-text-coulumn h3 {
+    color: var(--typo-color);
+    margin-bottom: 15px;
+}
+
+.info-text-coulumn p {
+    color: var(--typo-color);
+    line-height: 1.6;
+}
+
+/* Section réservation */
+.reservation {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.reservation h2 {
+    color: var(--typo-color);
+    margin-bottom: 10px;
+}
+
+.reservation p {
+    color: var(--typo-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--typo-color);
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+    }
+    
+    .img-hero-content,
+    .text-hero-content {
+        width: 100%;
+    }
+    
+    .nav-barre {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
