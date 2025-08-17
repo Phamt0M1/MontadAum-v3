@@ -103,14 +103,15 @@ body {
 }
 
 .text-hero-content {
-    width: 40vw; /* Changé de 30% à 30vw pour être cohérent */
-    padding: 20px; /* Ajout d'un peu d'espace interne */
+    width: 40vw;
+    padding: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre le contenu verticalement */
+    justify-content: center;
 }
 
 .text-hero-content h1 {
+    font-family: var(--base-font-family);
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--typo-color);
@@ -177,18 +178,17 @@ body {
 }
 /* Sections infos pratiques */
 .infos-pratiques {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 40px 20px;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: solid 2px var(--typo-color);
 }
 
 .infocolumn {
-    flex: 1;
-    min-width: 250px;
+    display: flex;
+    width: calc(25vw-2px);
     padding: 30px;
-    border-radius: 10px;
-    background-color: white;
+    background-color: var(--light-background);
+    border-right: solid 2px var(--typo-color);
 }
 
 .infocolumn.light-blue {
@@ -197,6 +197,7 @@ body {
 
 .infocolumn.light-gold {
     background-color: var(--light-gold);
+    border-right: solid 2px var(--light-gold);
 }
 
 .info-text-coulumn h3 {
@@ -226,8 +227,8 @@ body {
 
 /* Footer */
 .footer {
-    background-color: var(--typo-color);
-    color: white;
+    background-color: var(--light-background);
+    color: var(--typo-color);
     padding: 40px 20px;
     display: flex;
     justify-content: space-between;
@@ -243,8 +244,11 @@ body {
 }
 
 .footer-link {
-    color: white;
+    display: flex;
+    color: var(--typo-color);
     text-decoration: none;
+    justify-content: flex-start;
+
 }
 
 .footer-link:hover {
